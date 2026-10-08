@@ -95,7 +95,4 @@ function renderDetail(p){const el=document.getElementById('detail');if(!p){el.in
  const links=(ids,label)=>ids&&ids.length?`<div class="detail-row"><div class="detail-label">${label}</div><div class="detail-value">${ids.map(id=>byId[id]?byId[id].name:'informacja nieznana').join(', ')}</div></div>`:'';
  el.innerHTML=`<h2>${p.name}</h2><div class="sub">${p.branch}</div><div class="detail"><div class="detail-row"><div class="detail-label">Daty</div><div class="detail-value">${p.dates}</div></div><div class="detail-row"><div class="detail-label">Informacja</div><div class="detail-value">${p.rel}</div></div>${links(p.parents,'Rodzice')}${links(p.spouse,'Partner / małżonek')}${links(p.children,'Dzieci')}<span class="badge">Pokolenie ${p.gen}</span></div><div class="legend"><p><strong>Legenda:</strong> złote obramowanie oznacza Ryszarda. Niebieskie podświetlenie pokazuje bezpośrednie relacje wybranej osoby. Oznaczenie „[niepewne]” lub „przybliżona” zachowuje informację niepotwierdzoną.</p></div>`;
 }
-function renderTimeline(){const el=document.getElementById('timeline');const events=[];people.forEach(p=>{const m=p.dates.match(/(\d{2})\.(\d{2})\.(\d{4})/);if(m)events.push({d:`${m[3]}-${m[2]}-${m[1]}`,year:m[3],who:p.name,what:p.dates})});events.sort((a,b)=>a.d.localeCompare(b.d));el.innerHTML=events.map(e=>`<div class="event"><div class="year">${e.year}</div><div class="who">${e.who}</div><div class="what">${e.what}</div></div>`).join('')||'<div class="empty">Brak wydarzeń z pełną datą.</div>'}
-render();
-</script>
-</body></html>
+functio
